@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace MultyMediaJAVA
 {
     public partial class Form7 : Form
     {
+        private string audioPath = @"D:\Учёба\Мультимедийка\Курсач\Модель делегирования событий.mp3";
         public Form7()
         {
             InitializeComponent();
@@ -27,6 +29,22 @@ namespace MultyMediaJAVA
         private void button1_MouseHover(object sender, EventArgs e)
         {
             button1.BackColor = Color.SkyBlue;
+        }
+
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
+            // Только инициализация плеера БЕЗ управления воспроизведением
+            if (axWindowsMediaPlayer1 != null)
+            {
+                axWindowsMediaPlayer1.settings.setMode("loop", true);
+
+                // Только установка файла - управление пользователем
+                if (File.Exists(audioPath))
+                {
+                    axWindowsMediaPlayer1.URL = audioPath;
+                    // НЕТ play() - пользователь сам нажимает Play в плеере
+                }
+            }
         }
     }
 }
