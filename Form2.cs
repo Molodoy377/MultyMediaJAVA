@@ -8,7 +8,7 @@ namespace MultyMediaJAVA
 {
     public partial class Form2 : Form
     {
-        private string audioPath = @"C:\Users\dyzev\source\repos\MultyMediaJAVA\Основы Java - 1. Введение в Java.mp3";
+        private string audioPath = @"D:\Учёба\Мультимедийка\Курсач\Основы Java - 1. Введение в Java.mp3";
 
         public Form2()
         {
