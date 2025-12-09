@@ -117,6 +117,76 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Сетевые классы
+
+В основе работы в сети, поддерживаемой в Java, положено понятие сокета, инкапсулирующего конечную точку в сети. Сокет позволяет отдельному компьютеру (серверу) одновременно предоставлять доступ к сервисам множеству других компьютеров в сети (клиентов). Это достигается благодаря использованию порта. Сервер «прослушивает» порт до тех пор, пока клиент не соединится с ним. Для управления соединениями со многими клиентами сервер должен быть многопоточным. Связь между сокетами устанавливается и поддерживается стеком протоколов TCP(UDP)/IP. Протокол TCP резервирует первые 1024 порта для отдельных прикладных протоколов:
+    • порт 21 – для файлового протокола FTP;
+    • порт 23 – для протокола Telnet;
+    • порт 25 – для протокола электронной почты SMTP;
+    • порт 43 – для службы whois;
+    • порт 80 – для протокола гипертекста HTTP.
+Класс InetAddress Служит для инкапсуляции как числового IPадреса, так и его доменного имени. Этот класс может оперировать адресами как по протоколу IPv4, так и по протоколу IPv6. В классе InetAddress отсутствуют доступные конструкторы. Чтобы создать объект, следует использовать один из доступных в нем фабричных методов. Фабричный метод – статический метод, возвращающий экземпляр класса.
+Фабричные методы класса InetAddress:
+// для получения адреса локального хоста
+static InetAddress getLocalHost();
+// для получения адреса по имени хоста
+static InetAddress getByName(String hostName);
+// для получения всех адресов конкретного хоста
+static InetAddress[] getAllByName(String hostName);
+Могут вызвать исключение UnknownHostException.
+Основные методы класса InetAddress:
+// для получения IP-адреса в виде массива байт
+byte[] getAddress();
+// для получения IP-адреса хоста в строковом виде
+String getHostAddress();
+// для получения доменного имени хоста
+String getHostName();
+
+Классы сокетов
+
+В Java поддерживаются две разновидности сокетов по протоколу TCP/IP: класс ServerSocket для инкапсуляции сервера, класс Socket для инкапсуляции клиента. Класс ServerSocket ожидает подключения клиентов для выполнения заданных действий (обрабатывает запросы). Класс Socket служит для подключения к серверным сокетам и инициирования обмена данными по сетевому протоколу.
+Класс Socket
+Конструкторы:
+Socket(String hostName, int port) throws
+UnknownHostException, IOException;
+Socket(InetAddress address, int port) throws
+IOException;
+Методы для получения информации о сокете:
+// для получения связанного с сокетом адреса
+InetAddress getInetAddress();
+// для получения связанного с сокетом порта
+int getPort();
+Для доступа к потокам ввода/вывода, связанным с сокетом, используют следующие методы:
+// для получения потока байтового ввода
+InputStream getInputStream() throws IOException;
+// для получения потока байтового вывода
+OutputStream getOutputStream() throws IOException;
+Объекты InputStream и OutputStream можно использовать для организации форматированного ввода/вывода, например для создания объектов
+DataInputStream и DataOutputStream:
+// конструктор DataInputStream
+DataInputStream(InputStream in);
+// конструктор DataOutputStream
+DataOutputStream(OutputStream out);
+Методы DataOutputStream:
+final void writeDouble(double data);
+final void writeBoolean(boolean data);
+final void writeInt(int data);
+final void writeUTF(String data);
+Методы DataInputStream:
+final double readDouble();
+final boolean readBoolean();
+final int readInt();
+final String readUTF();
+Могут вызвать исключение IOException. Класс ServerSocket применяется для создания серверов, которые принимают запросы от клиентских программ, устанавливающих соединение с ними через открытые порты.
+Конструкторы класса ServerSocket:
+// для указания порта
+ServerSocket(int port) throws IOException;
+// для указания порта и максимального количества
+// клиентов
+ServerSocket(int port, int max) throws IOException;
+Метод accept() класса ServerSocket реализует блокирующий вызов, чтобы ожидать от клиента начала соединения. После соединения метод возвращает объект типа Socket, который используется для взаимодействия с клиентом. public Socket accept() throws IOException;</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
