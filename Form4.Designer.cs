@@ -77,7 +77,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1443, 857);
+            this.ClientSize = new System.Drawing.Size(1444, 861);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.label1);
