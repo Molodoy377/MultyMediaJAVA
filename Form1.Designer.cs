@@ -171,6 +171,9 @@
             this.button9.TabIndex = 8;
             this.button9.Text = "8. Исключения";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.button9.MouseEnter += new System.EventHandler(this.button9_MouseHover);
+            this.button9.MouseLeave += new System.EventHandler(this.button9_MouseHover);
             // 
             // Form1
             // 
