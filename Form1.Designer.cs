@@ -155,6 +155,9 @@
             this.button8.TabIndex = 7;
             this.button8.Text = "7. Сокеты";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.button8.MouseEnter += new System.EventHandler(this.button8_MouseHover);
+            this.button8.MouseLeave += new System.EventHandler(this.button8_MouseLeave);
             // 
             // Form1
             // 
