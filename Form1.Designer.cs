@@ -174,7 +174,7 @@
             this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             this.button9.MouseEnter += new System.EventHandler(this.button9_MouseHover);
-            this.button9.MouseLeave += new System.EventHandler(this.button9_MouseHover);
+            this.button9.MouseLeave += new System.EventHandler(this.button9_MouseLeave);
             // 
             // button10
             // 
@@ -187,6 +187,9 @@
             this.button10.TabIndex = 9;
             this.button10.Text = "9. Система ввода-вывода";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.button10.MouseEnter += new System.EventHandler(this.button10_MouseHover);
+            this.button10.MouseLeave += new System.EventHandler(this.button10_MouseLeave);
             // 
             // Form1
             // 
