@@ -23,7 +23,7 @@ namespace MultyMediaJAVA
                 axWindowsMediaPlayer1.Visible = true;           // ПОКАЗЫВАЕМ плеер
                 axWindowsMediaPlayer1.uiMode = "full";          // Полный интерфейс с кнопками
                 axWindowsMediaPlayer1.Dock = DockStyle.None;     // Фиксируем докинг
-                axWindowsMediaPlayer1.Location = new Point(350, 6500); // Фиксируем позицию
+                axWindowsMediaPlayer1.Location = new Point(350, 6550); // Фиксируем позицию
                 axWindowsMediaPlayer1.settings.volume = 50;
             }
         }
