@@ -203,6 +203,9 @@
             this.button11.TabIndex = 10;
             this.button11.Text = "10. Коллекции";
             this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.button11.MouseEnter += new System.EventHandler(this.button11_MouseHover);
+            this.button11.MouseLeave += new System.EventHandler(this.button11_MouseLeave);
             // 
             // Form1
             // 
