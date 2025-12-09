@@ -33,6 +33,14 @@ namespace MultyMediaJAVA
         {
             button2.BackColor = Color.White;
         }
+        private void button3_MouseHover(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.SkyBlue;
+        }
+        private void button3_MouseLeave(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.White;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             Form2 newForm = new Form2();
@@ -43,6 +51,13 @@ namespace MultyMediaJAVA
         private void button2_Click(object sender, EventArgs e)
         {
             Form3 newForm = new Form3();
+            newForm.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form4 newForm = new Form4();
             newForm.Show();
             this.Hide();
         }

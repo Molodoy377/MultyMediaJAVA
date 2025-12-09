@@ -224,7 +224,7 @@ rnd2 = new java.util.Random();
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAzwAAAKDCAYAAADfHQ/6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAA/7JJREFUeF7svQV0Xee1ru2k7WlPuU0hTZOGmdMwkxMz25IsspiZmZmZwWwnadqm
+        vgAADr4B6kKxwAAA/7JJREFUeF7svQV0Xee1ru2k7WlPuU0hTZOGmdMwkxMz25IsspiZmZmZwWwnadqm
         3NMUQ2bJLIuZmWU77z/eb+21tdbaW7bbnnPPvePf3xjPXWuTpLjJuXo853znMgB40vpTPGXzGZ7ZcRjP
         OxzDC47H8ZJznZ4XnU7gJafjeNXuCF6x+QwvWX0ieNn6Uzxr9jfBc+Z/x/MW/8Dz2z/Cs5af4GnLT/DU
         9o/xpMVHgifM/o7Ht/1N8NjWv+LRLX/BExb/wOPbP1LxhOXH+KnVJyqetj0kfrZn7Y4InrM/Kn6ul13q
@@ -7976,7 +7976,7 @@ rnd2 = new java.util.Random();
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAy8AAAJ8CAYAAAD3QJ7dAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAA/7JJREFUeF7s/QWXXGeapgvrb3znOzRzZqa7q6tcVa4qWwbZsi1mTmYOzoBkZuYU
+        vwAADr8BOAVTJAAA/7JJREFUeF7s/QWXXGeapgvrb3znOzRzZqa7q6tcVa4qWwbZsi1mTmYOzoBkZuYU
         WDIKM8WMZpSUzMwoKUGSoaj7Put53r0jduyIlOSq7tMz7njXutbeAZlKqeXquHQ/sOz3Ad/gD4Hf4sXg
         O3g5rBGvhDdhRWSLnVcjmrEiogkrQ+7i9cBvscL/a+a1gG+w3Osz5iXvz/Gyzxd42fdLLPf7Gi/4fY0/
         +H6F3/t8yTzv9Tl+u+cz5je7P8Wvd32C532+wG99v3Tieb+v8Dv/r514Ieg2/2zLQ+4yL4U28M/1WlQr
