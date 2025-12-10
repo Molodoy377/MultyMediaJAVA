@@ -70,7 +70,7 @@
             this.label1.Padding = new System.Windows.Forms.Padding(38, 16, 38, 16);
             this.label1.Size = new System.Drawing.Size(1250, 90);
             this.label1.TabIndex = 4;
-            this.label1.Text = "label1";
+            this.label1.Text = "Здесь отобразятся результаты";
             // 
             // button2
             // 
