@@ -53,7 +53,7 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button1.Font = new System.Drawing.Font("Stencil", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(462, 472);
+            this.button1.Location = new System.Drawing.Point(508, 472);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(404, 58);
             this.button1.TabIndex = 2;
@@ -65,7 +65,7 @@
             // 
             this.label1.BackColor = System.Drawing.Color.MintCream;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(63, 533);
+            this.label1.Location = new System.Drawing.Point(83, 533);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(38, 16, 38, 16);
             this.label1.Size = new System.Drawing.Size(1250, 90);
@@ -76,7 +76,7 @@
             // 
             this.button2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button2.Font = new System.Drawing.Font("Stencil", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(67, 625);
+            this.button2.Location = new System.Drawing.Point(87, 625);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(511, 65);
@@ -90,7 +90,7 @@
             // 
             this.button6.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button6.Font = new System.Drawing.Font("Stencil", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(802, 625);
+            this.button6.Location = new System.Drawing.Point(822, 625);
             this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(511, 65);
