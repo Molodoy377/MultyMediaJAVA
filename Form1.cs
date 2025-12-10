@@ -65,49 +65,10 @@ namespace MultyMediaJAVA
         {
             button6.BackColor = Color.White;
         }
-        private void button7_MouseHover(object sender, EventArgs e)
-        {
-            button7.BackColor = Color.SkyBlue;
-        }
-        private void button7_MouseLeave(object sender, EventArgs e)
-        {
-            button7.BackColor = Color.White;
-        }
-        private void button8_MouseHover(object sender, EventArgs e)
-        {
-            button8.BackColor = Color.SkyBlue;
-        }
-        private void button8_MouseLeave(object sender, EventArgs e)
-        {
-            button8.BackColor = Color.White;
-        }
-        private void button9_MouseHover(object sender, EventArgs e)
-        {
-            button9.BackColor = Color.SkyBlue;
-        }
-        private void button9_MouseLeave(object sender, EventArgs e)
-        {
-            button9.BackColor = Color.White;
-        }
-        private void button10_MouseHover(object sender, EventArgs e)
-        {
-            button10.BackColor = Color.SkyBlue;
-        }
-        private void button10_MouseLeave(object sender, EventArgs e)
-        {
-            button10.BackColor = Color.White;
-        }
-        private void button11_MouseHover(object sender, EventArgs e)
-        {
-            button11.BackColor = Color.SkyBlue;
-        }
-        private void button11_MouseLeave(object sender, EventArgs e)
-        {
-            button11.BackColor = Color.White;
-        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 newForm = new Form2();
+            Form13 newForm = new Form13();
             newForm.Show();
             this.Hide();
         }
@@ -143,41 +104,6 @@ namespace MultyMediaJAVA
         private void button6_Click(object sender, EventArgs e)
         {
             Form7 newForm = new Form7();
-            newForm.Show();
-            this.Hide();
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            Form8 newForm = new Form8();
-            newForm.Show();
-            this.Hide();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            Form9 newForm = new Form9();
-            newForm.Show();
-            this.Hide();
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            Form10 newForm = new Form10();
-            newForm.Show();
-            this.Hide();
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            Form11 newForm = new Form11();
-            newForm.Show();
-            this.Hide();
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            Form12 newForm = new Form12();
             newForm.Show();
             this.Hide();
         }
