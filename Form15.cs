@@ -64,5 +64,13 @@ namespace MultyMediaJAVA
             newForm.Show();
             this.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form17 newForm = new Form17();
+            newForm.FormClosed += (s, args) => this.Show();
+            newForm.Show();
+            this.Hide();
+        }
     }
 }

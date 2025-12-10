@@ -117,4 +117,404 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>ЛАБОРАТОРНАЯ РАБОТА №2
+
+Решение простых вычислительных задач на Java. Компоненты пользовательского интерфейса Swing. Формирование и компоновка GUI. Делегирование обработки событий
+
+Цель работы: Изучить основные компоненты набора классов Swing. Исследовать возможности среды разработки по формированию и компоновке графического интерфейса пользователя. Изучить принцип делегирования обработки событий, наборы обработчиков для компонентов пользовательского интерфейса.
+
+Методические указания к выполнению лабораторной работы
+
+В общем случае компоненты из библиотеки Swing происходят от класса JComponent, который предлагает функциональные возможности, общие для всех компонентов. Например, JComponent поддерживает подключаемый внешний вид. JComponent наследует AWT-классы Container и Component, следовательно, основан на компоненте AWT и совместим с ним. Все компоненты Swing представлены классами, определенными в пакете javax.swing и начинаются с буквы «J».
+
+Основными классами элементов управления Swing являются JLabel, JButton, JToggleButton, JCheckBox, JRadioButton, JComboBox, JList, JTextField, JPasswordField, JFormattedTextField, JTextArea, JScrollBar, JSlider, JProgressBar, JSpinner, JSeparator, JEditorPane, JTextPane и JTree.
+
+JLabel – используется для вывода статического текста (метки). Возможен вывод текста с изображением (иконкой) и применение html-разметки для форматированного вывода.
+
+JButton – используется для взаимодействия с пользователем, представляет собой кнопку (прямоугольник с текстом и/или изображением). Обычно для кнопки регистрируется слушатель события действия (нажатие кнопки).
+
+JToggleButton – представляет собой кнопку, которая может находиться и в обычном состоянии, и в нажатом. Состояние кнопки при этом фиксируется. Когда пользователь взаимодействует с такой кнопкой, она изменяет свое состояние на противоположное. Управление внешним видом компонента осуществляется так же, как и у JButton.
+
+JCheckBox – представляет собой элемент для выбора (флажок). Класс JCheckBox является производным от JToggleButton, отличается от последнего только внешним видом: квадрат, в который можно поставить или убрать галочку. Функциональность наследуется от JToggleButton. JCheckBox обычно используется в меню настроек для множественного выбора из группы элементов.
+
+JRadioButton – представляет собой элемент для выбора (переключатель). Класс JRadioButton также является наследником класса JToggleButton. Внешний вид элемента: круг, в который можно поставить или убрать точку. Однако в группе элементов JRadioButton он ведет себя как переключатель. Если пользователь выбирает конкретный элемент («устанавливает точку»), то с ранее выбранного элемента выбор снимается («убирается точка»). JRadioButton также используется в меню настроек, но для выбора одного элемента из группы элементов.
+
+JComboBox – используется для выбора одного элемента из нескольких вариантов, представляет собой раскрывающийся список, который в нормальном состоянии отображает только один выбранный элемент. Остальные элементы появляются в специальном всплывающем окне при раскрытии списка. JComboBox допускает редактирование текущего элемента, то есть пользователь может не только выбрать определенный элемент, но и ввести свое собственное значение. Список JComboBox обладает возможностью поиска элементов с клавиатуры, что значительно упрощает работу с большими наборами.
+
+JList – используется для отображения группы элементов (списка). В отличие от компонента JComboBox отображает одновременно сразу несколько элементов списка (весь список или его часть), кроме того пользователь может выбрать в списке также несколько элементов (если установлен соответствующий режим выделения).
+
+JTextField – используется для ввода и редактирования однострочного текста. Для обработки текстовых данных, введенных пользователем, обычно используют слушатель события действия, который получает событие после нажатия пользователем клавиши Enter.
+
+JPasswordField – представляет собой однострочный текстовый редактор. Работа с компонентом производится аналогично, как и с JTextField. Единственным отличием данного компонента от JTextField является то, что весь введенный в него текст заменяется специальными символами (звездочками или другими заданными символами). Обычно используется для ввода паролей.
+
+JFormattedTextField – используется для форматированного ввода данных и представляет собой однострочный текстовый редактор. Используя средства форматирования данного компонента, можно установить текстовые поля для ввода дат, индексов, телефонов, адресов сайтов, электронной почты и т.д., то есть данных, для которых есть общепринятый формат. Такой компонент может облегчить работу разработчика по валидации полученных от пользователя исходных данных.
+
+JTextArea – представляет собой многострочный текстовый редактор. Класс JTextArea является производным от JTextField и наследует все его методы, дополняя их методами для управления вводом нескольких строк. При вводе пользователь разделяет строки обычным способом, нажимая клавишу Enter на клавиатуре. Если текст формируется динамически в программе, то для разделения строк используется специальный управляющий символ «\n». JTextArea обычно помещается в панель (контейнер) с полосами прокрутки JScrollPane.
+
+JScrollBar – представляет собой отдельную полосу прокрутки (ползунок, область его движения и управляющие движением ползунка кнопки). Используется дополнительно для некоторых компонентов, если нет возможности использовать JScrollPane.
+
+JSlider – представляет собой элемент для изменения значения в заданном диапазоне. Внешний вид компонента: шкала значений заданного диапазона (числа, изображения «засечек» или другие пиктограммы) и ползунок. Для управления ползунком используется перетаскивание мышью или клик на шкале ползунка. Для работы ползунка используется информация о минимальном значении, максимальном значении, текущем значении и внутреннем диапазоне.
+
+JProgressBar – представляет собой индикатор процесса (например, некоторого вычисления), который позволяет наглядно отображать его выполнение. Пользователь может оценить время исполнения некоторого процесса, прогнозировать его завершение и т.д. Внешний вид компонента: непрерывно меняющаяся (заполняющаяся) полоса со значением (в процентах), насколько выполнен процесс. В отличие от JSlider индикатор процесса JProgressBar использует лишь три значения: минимальное и максимальное значения задаются перед выполнением процесса, а текущее значение должно обновляться по мере выполнения процесса.
+
+JSpinner – представляет собой счетчик, который позволяет изменять текущее значение путем нажатия на соответствующие кнопки (увеличения и уменьшения значения). Внешне компонент похож на список JComboBox с одним выбранным элементом списка, но нажатие не раскрывает список, а изменяет значение в области отображения. Данное свойство счетчика позволяет использовать неограниченное количество элементов. Для счетчика JSpinner можно узнать его текущее, предыдущее и следующее значения, а также сменить текущее значение новым. Для обработки события изменения значения счетчика используется слушатель ChangeListener.
+
+JSeparator – представляет собой вертикальную или горизонтальную черту (разделитель). Используется для графического разделения различных по структуре или функциям областей программы (например, пунктов меню).
+
+JEditorPane – представляет собой многострочный текстовый редактор с возможностью обработки и отображения форматированного текста. JEditorPane используется обычно для отображения текста в двух широко распространенных форматах: HTML и RTF, но потенциально может использоваться для отображения текста любого формата, с любыми элементами и любым оформлением.
+
+JTextPane – представляет собой многострочный текстовый редактор. Класс JTextPane является производным от класса JEditorPane. Обладая всеми возможностями своего базового класса, JTextPane добавляет к нему стилевую разметку текста. Компонент JTextPane используется в приложениях, где необходим многофункциональный текстовый редактор, который позволяет установить шрифт и его размер, цвет символов, выравнивание текста и т.п., использовать различные стили для выделения заголовков, основного текста, сносок и элементов текста.
+
+JTree – используется для графического отображения данных, связанных иерархической структурой. Для представления дерева данных используется списочная диаграмма с отображением дочерних узлов на заданном отступе от родительского элемента, связанных графически линиями. JTree используется обычно для представления части файловой системы, используемой приложением для своей работы.
+
+Подход к обработке событий в Java основан на модели делегирования событий, определяющей стандартные и согласованные механизмы для гене-рации и обработки событий. При этом логика обработки события отделяется от логики пользовательского интерфейса, генерирующего эти события. Каждый элемент пользовательского интерфейса может «делегировать» обработку события отдельному фрагменту кода.
+
+Концепция модели делегирования событий включает совместную работу трех объектов: источника, слушателя и события (рис.1).
+
+Источник генерирует событие и посылает его одному или более слушателей. Слушатель ожидает до тех пор, пока не получит событие. Как только событие получено, слушатель обрабатывает его и возвращает управление.
+
+Под событием в данной модели понимается объект, инкапсулирующий изменение состояния источника. Событие генерируется в результате взаимодействия пользователя с элементом в графическом интерфейсе (например, клик на экранной кнопке, ввод символа с клавиатуры, выбор элемента в списке или клик кнопкой мыши).
+
+Под источником в данной модели понимается объект, генерирующий событие. Генерация события происходит при изменении внутреннего состояния объекта. Источники могут генерировать более одного типа событий. Для обработки событий источник должен регистрировать слушателей. Каждый тип события имеет собственный метод регистрации. Общая форма регистрации слушателя:
+
+public void addTypeListener(TypeListener el);
+
+Где Type – это имя объекта события, el – ссылка на слушателя события. Например, addKeyListener() – регистрация слушателя событий клавиатуры, addMouseMotionListener() – регистрация слушателя движения мыши. Когда событие сгенерировано, все зарегистрированные слушатели получают копию объекта события. Это называется групповой рассылкой события.
+
+Источник также может отменить регистрацию слушателя для определенного типа событий. Общая форма отмены регистрации слушателя:
+
+public void removeTypeListener(TypeListener el);
+
+Под слушателем понимается объект, уведомляемый о возникновении события и выполняющий определенный набор действий (обработку события). Слушатель должен быть зарегистрирован одним или более источниками событий, чтобы получать уведомления о событиях определенного рода. А также должен реализовать методы для получения и обработки данных событий.
+
+Основные классы событий: MouseEvent, который генерируется при перетаскивании, перемещении, щелчках, нажатии и отпускании кнопок мыши, а также возникает, когда курсор мыши входит на компонент либо покидает его; KeyEvent, который генерируется при получении ввода с клавиатуры; ActionEvent, который генерируется при нажатии кнопки, двойном щелчке на элементе списка либо выборе пункта меню; ItemEvent, который генерируется при щелчке на флажке или элементе списка, при выборе элемента списка, отметке или снятии отметки пункта меню; MouseWheelEvent, который генерируется при прокрутке колесика мыши; TextEvent, который генерируется при изменении значения текстовой области или текстового поля; FocusEvent, который генерируется, когда компонент получает или теряет фокус клавиатурного ввода; WindowEvent, который генерируется при активизации либо закрытии окна, а также при деактивизации, свертывании, развертывании или выходе из него; ComponentEvent, который генерируется при сокрытии компонента, его перемещении, изменении его размера либо включении видимости; ContainerEvent, который генерируется при добавлении или исключении компонента из контейнера.
+
+Основные интерфейсами слушателей являются MouseListener, KeyListener, ActionListener, ItemListener, MouseMotionListener, MouseWheelListener, TextListener, FocusListener, WindowFocusListener, WindowListener, ComponentListener и ContainerListener.
+
+MouseListener содержит метод для обработки клика мыши (нажатия и отпускания кнопки мыши в одной и той же точке) mouseClicked(), метод для обработки события перехода мыши в область отображения компонента mouseEntered(), метод для обработки события перехода мыши из области отображения компонента mouseExited(), метод для обработки нажатия кнопки мыши mousePressed() и метод для обработки отпускания кнопки мыши mouseReleased(). Каждый метод этого слушателя принимает событие MouseEvent.
+
+KeyListener содержит метод для обработки нажатия клавиши клавиатуры keyPressed(), метод для обработки отпускания клавиши клавиатуры keyReleased() и метод для обработки печати (ввода) символа (только для печатных символов) keyTyped(). Каждый метод данного слушателя принимает событие KeyEvent.
+
+ActionListener содержит один метод для обработки события действия actionPerformed(), который принимает событие ActionEvent.
+
+ItemListener содержит один метод для обработки события изменения состояния элемента itemStateChanged(), который принимает событие ItemEvent.
+
+MouseMotionListener содержит метод для обработки перемещения курсора мыши mouseMoved() и метод для обработки перетаскивания курсора мыши mouseDragged(). Каждый метод этого слушателя принимает событие MouseEvent.
+
+MouseWheelListener содержит один метод для обработки события прокрутки колесика мыши mouseWheelMoved(), который принимает событие MouseWheelEvent.
+
+TextListener содержит один метод для обработки события изменения содержимого текстового поля или текстовой области textChanged(), который принимает событие ТехtEvent.
+
+FocusListener содержит метод для обработки события получения компонентом фокуса клавиатурного ввода focusGained() и метод для обработки события потери компонентом фокуса клавиатурного ввода focusLost(). Каждый метод данного слушателя принимает событие FocusEvent.
+
+WindowFocusListener содержит метод для обработки события получения окном фокуса ввода windowGainedFocus() и метод для обработки события потери окном фокуса ввода windowLostFocus(). Каждый метод данного слушателя принимает событие WindowEvent.
+
+WindowListener содержит метод для обработки события активизации окна windowActivated(), метод для обработки события закрытия окна windowClosed(), метод для обработки события деактивизации окна windowDeactivated(), метод для обработки события разворачивания окна windowDeiconified(), метод для обработки события сворачивания окна в пиктограмму на панели задач операционной системы windowlconified(), метод для обработки события открытия окна windowOpened(). Каждый метод данного слушателя также принимает событие WindowEvent.
+
+ComponentListener содержит метод для обработки события изменения размера компонента componentResized(), метод для обработки события перемещения компонента componentMoved(), метод для обработки события отображения компонента componentShown() и метод для обработки события сокрытия компонента componentHidden(). Каждый метод этого слушателя принимает событие ComponentEvent.
+
+ContainerListener содержит метод для обработки события добавления компонента к контейнеру componentAdded() и метод для обработки события удаления компонента из контейнера componentRemoved(). Каждый метод данного слушателя принимает событие ContainerEvent.
+
+Использование модели делегирования событий заключается в реализации соответствующего интерфейса в слушателе и его последующей регистрации источником как получателя уведомлений о событии. Так как источник может генерировать несколько типов событий, он может зарегистрировать отдельно для каждого собственного слушателя. К тому же слушатель может подписаться на получение нескольких типов событий и должен реализовать все интерфейсы, необходимые для получения этих событий.</value>
+  </data>
+  <data name="axWindowsMediaPlayer1.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAtwAAAAIB
+        AAAAAQAAAAAAAAAAAAAAAKIAAAABAwAACAAAAAAABQAAAAAAAADwPwMAAAAAAAUAAAAAAAAAAAAIAAIA
+        AAAAAAMAAQAAAAsA//8DAAAAAAALAP//CAACAAAAAAADADIAAAALAAAACAAKAAAAZgB1AGwAbAAAAAsA
+        AAALAAAACwD//wsA//8LAAAACAACAAAAAAAIAAIAAAAAAAgAAgAAAAAACAACAAAAAAALAAAAwAcAAGEC
+        AAAL
+</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAQEAAAAEAIAAoQgAAFgAAACgAAABAAAAAgAAAAAEAIAAAAAAAAEIAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAkJCQHMjIyMzExMVgzMzN9MjIyoTMz
+        M7kzMzPNMzMz4TIyMu8yMjL0MjIy+TIyMvsyMjLyMjIy5zIyMtsyMjLEMjIyqDIyMo0yMjJlMTExOScn
+        Jw0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwMDAVMDAwWTExMZQyMjLKMjIy+TMz
+        M/8zMzP6MzMz5jIyMtkyMjLPMjIyxjIyMsQyMjLGMzMzyDMzM9IyMjLgMjIy7zIyMv4zMzP/MzMz/zMz
+        M/8zMzP/MzMz/zMzM/8yMjL8MzMzzTMzM4wwMDBEAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMTExHzExMXYyMjKoMjIysjEx
+        MYoxMTFoMTExSDMzMygtLS0RAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAfHx8ILi4uITExMT4yMjJlMzMzjDIyMrwzMzPwMzMz/zMzM/8zMzP/MzMz/zIyMucxMTGPMTExJAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqKioMMTExOTMz
+        M0EkJCQOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS4uLiwxMTFxMjIytzIy
+        MvkzMzP/MzMz/zIyMvwyMjKeLCwsFwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMzMzDy4uLiEzMzMyMTExQzAwME8xMTFTMTExVzIy
+        MlszMzNaMjIyUTIyMkcyMjI9Ly8vMDMzMxkAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAqKioSMjIyZTIyMsozMzP/MzMz/zMzM+syMjJHAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAjMzMy0xMTFhMTExjzIyMrYyMjLZMzMz9TMzM/8zMzP/MzMz/zMz
+        M/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MjIy/TIyMuoyMjLPMjIyrDEx
+        MYYzMzNaMTExKQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALy8vOzIyMrozMzP/MzMz+jIy
+        MkwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAACoqKgwwMDBeMjIyrDIyMu8zMzP/MzMz/zMzM/8zMzP/MzMz/zMz
+        M/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMz
+        M/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8yMjLvMjIysjIyMmstLS0cAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAMjIyRzIyMt4yMjLuKCgoEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKCgoEzExMY8yMjLyMzMz/zMzM/8zMzP/MzMz/zMz
+        M/8zMzP/MzMz/zMzM/8zMzP/MjIy/jMzM/AyMjLbMjIyxTIyMrIyMjKoMjIynjExMZUxMTGUMzMzljIy
+        MpgyMjKdMzMzqjExMbgyMjLGMjIy3TIyMvczMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MjIy/TIy
+        MrszMzNLAAAAAAAAAAAAAAAAAAAAAAAAAAAnJycNMzMzpTExMXIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjIyQjMzM+szMzP/MzMz/zMz
+        M/8zMzP/MzMz/zMzM/8zMzP1MjIywDIyMogxMTFXMjIyMzMzMw8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABMzMzFDIyMjgzMzNkMzMzkTIy
+        MsUyMjL5MzMz/zMzM/8zMzP/MzMz/zExMcIxMTEkAAAAAAAAAAAAAAAAAAAAAAAAAAAwMDA1AAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDAwJTIy
+        MvQzMzP/MzMz/zMzM/8zMzP/MzMz/zIyMrswMDBPHx8fCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAKioqDDExMVIzMzOvMjIy/DMzM/8zMzP/MjIy7DAwMCoAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAADExMYozMzP/MzMz/zMzM/8zMzP/MzMz/zIyMnQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4uLiYyMjK8MzMz/zMz
+        M/8zMzPDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxMTGAMzMz/zMzM/8zMzP/MzMz/zMzM/8wMDAlAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAzIyMq0zMzP/MjIy/QAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMzMzDzMzM80zMzP/MzMz/zMz
+        M/8zMzP/MjIy2jExMVMcHBwJAAAAAAAAAAAAAAAAAAAAAAAAAAAzMzMjMTExaDIyMpkyMjK/MjIy2TIy
+        MugyMjLxMzMz8DIyMuozMzPcMTExxzIyMqwzMzOHMTExXDAwMCUAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwMDAlMzMz/zIyMsYAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAzMzMKMzMzgjIyMuwzMzP/MzMz/zMzM/8zMzP/MjIy+TIyMtsyMjKIMDAwFTMzMy0yMjK/MjIy/jMz
+        M/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz5jEx
+        MZoxMTE+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMzMzGTMzM7k1NTUYAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMzMFMDAwPzIyMm8yMjKEMzMzizExMXwwMDBEAAAAADMz
+        Mw8yMjLuMzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMz
+        M/8zMzP/MzMz/zMzM/8zMzP/MzMz/zIyMtAxMTE0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAqKioYMjIy/DMzM/8zMzP/MzMz/zMzM/8zMzP+MjIy7zIyMtsyMjLYMjIy3zIy
+        MugyMjL8MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/oxMTGFJCQkBwAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADIyMoQzMzP/MzMz/zMzM/UzMzNpLCwsFwAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAABDExMR8xMTFDMTExdzIyMqwyMjLuMzMz/zIyMtEyMjIzAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMTExUzIy
+        MsEyMjLPAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABDIy
+        MkIqKioGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAqKioMMjIyODMzM18xMTF7MzMzkTExMZ8yMjKoMTExqTMzM6QyMjKZMjIyiDIy
+        MnAxMTFTMzMzLR8fHwgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMzMzIzIyMpcyMjJvLi4uIQAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAALS0tIjExMYEyMjLMMjIy+zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMz
+        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
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMzMwUyMjJvMjIy1jMz
+        M/4zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMz
+        M/8zMzP/MzMz/zMzM/8zMzP/MzMz/zIyMvsyMjLZMjIyrDExMXwtLS0RAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAxMTFOMzMz/zMzM/8zMzP/MjIyPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAxMTG9MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMz
+        M/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz/zMzM/8zMzP/MjIy4C8v
+        LzsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMzMzUDMzM/8zMzP/MzMz/y8vLzsAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAfHx8IMjIy/DMzM/8zMzP/MzMz/zMzM/8zMzP/MjIy/TIyMsEyMjKOMTExcTEx
+        MWEwMDBUMTExSDAwMEUwMDBEMDAwRDAwMEUyMjJMMDAwVDExMVwyMjJlMjIydDExMYUzMzOWMjIypzIy
+        MsAyMjLaMzMz9TMzM/8zMzP6MjIydAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADIyMqwzMzP/MzMz/zIy
+        MvwqKioSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADExMXsyMjL+MzMz/zMzM/8zMzP/MzMz/zIy
+        MuMoKCgTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzEx
+        MWEtLS0nAAAAAAAAAAAAAAAAAAAAAAAAAAAqKioSLy8vNjMzM18yMjIzAAAAAAAAAAAAAAAAJCQkBzIy
+        MokzMzP/MzMz/zMzM/8xMTGuAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALy8vNjIy
+        MqEzMzPrMzMz/zMzM/8zMzP/MzMz5jExMXIoKCgTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAvLy8QAAAAAAAAAAAzMzMjMjIy7TIyMqEqKioSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACoq
+        KgwyMjJ1MzMzpTIyMuczMzP/MzMz/zMzM/8yMjLbMTExGgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAATExMSQyMjJRMTExdzMzM5ExMTGpMTExszExMYAzMzM3AAAABAAA
+        AAAAAAAAAAAAAAAAAAAvLy9AMjIyawAAAAAAAAAAAAAAADIyMm8zMzP/MzMz3C4uLiEAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAJCQkBzAwMF4zMzOqMjIyyjExMb0yMjJ6JCQkDgAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyMjJmMjIy3TMzMwoAAAAAAAAAAAAAAAAzMzMPMzMz+jMz
+        M/8zMzPSKioqBgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMzOCMjIy/jExMWEAAAAAAAAAAAAA
+        AAAAAAAAAAAAADIyMuczMzP/MzMz/zIyMmYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxMTGLMzMz/zIy
+        MtYAAAACAAAAAAAAAAAAAAAAAAAAACcnJw0zMzP6MzMz/zMzM/8xMTG4AAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAzMzOCMzMz/zMzM/8wMDBeAAAAAAAAAAAAAAAAAAAAAAAAAAAyMjJvMzMz/zMzM/8zMzP/MjIy1AAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAxMTFdMjIy/jMzM/8yMjLgAAAABAAAAAAAAAAAAAAAAAAAAAAwMDAVMjIy7DMz
+        M/8zMzP/MzMz/zMzM7kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxMTEpMzMz9TMzM/8zMzP/MzMzeAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAMzMzqjMzM/8zMzP/MzMz/zMzM/8yMjJvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABMjIyxjMzM/8zMzP/MjIy9zMz
+        MxQAAAAAAAAAAAAAAAAAAAAAMDAwTzMzM/8zMzP/MzMz/zMzM/8yMjLuJCQkDgAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDAwVDMz
+        M/8zMzP/MzMz/zIyMqgAAAAAAAAAAAAAAAAAAAAAAAAAAjMzM9czMzP/MzMz/zMzM/8zMzP/MjIyegAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAADIyMsEzMzP/MzMz/zMzM/8yMjJ6AAAAAAAAAAAAAAAAAAAAADAwMEUzMzP/MzMz/zMz
+        M/8zMzP/MjIy5xwcHAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAC0tLREyMjL8MzMz/zMzM/8zMzP/MzMzkQAAAAAAAAAAAAAAAAAA
+        AAAxMTGAMzMz/zMzM/8zMzP/MzMz/zExMXYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxMTE0MzMz/zMzM/8zMzP/MzMz/zMz
+        M+EzMzMFAAAAAAAAAAAAAAAAMjIyjjMzM/8zMzP/MzMz/zMzM/8zMzMjAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMTExNDMz
+        M/8zMzP/MzMz/zMzM/8zMzP/MjIydQAAAAAAAAAAAAAAADIyMnUzMzP/MzMz/zMzM/8zMzP/MzMzCgAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAABwcHAkxMTH1MzMz/zMzM/8zMzP/MzMz/zIyMvYvLy8wAAAAAAAAAAAzMzM8MzMz/zMz
+        M/8zMzP/MzMz/zMzM0YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjIykzMzM/8zMzP/MzMz/zMzM/8zMzP/MzMz4Soq
+        KhgAAAAAAAAAAjMzM9wzMzP/MzMz/zMzM/8yMjLUMzMzCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgoKBMyMjLnMzMz/zMz
+        M/8zMzP/MzMz/zMzM/8yMjLRLy8vEAAAAAAxMTFXMzMz/zMzM/8zMzP/MzMz/zIyMrEzMzMFAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAMjIyPTIyMvgzMzP/MzMz/zMzM/8zMzP/MzMz/zIyMsYqKioMAAAAADIyMpczMzP/MzMz/zMz
+        M/8zMzP/MjIytRwcHAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMzNQMzMz+jMzM/8zMzP/MzMz/zMzM/8zMzP/MTExvR8f
+        HwgAAAADMTExmjMzM/8zMzP/MzMz/zMzM/8xMTHHMzMzGQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMzM0szMzP1MzMz/zMz
+        M/8zMzP/MzMz/zMzM/8yMjKyAAAABAAAAAAxMTFiMzMz8DMzM/8zMzP/MzMz/zIyMuQwMDA6AAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAMzMzNzIyMugzMzP/MzMz/zMzM/8zMzP/MzMz/zIyMpkAAAAAAAAAADMzMxQzMzOMMzMz8DMz
+        M/8zMzP/MzMz+jExMXcAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxMTEfMzMz0jMzM/8zMzP/MzMz/zMzM/8zMzP/MTExbAAA
+        AAAAAAAAAAAAACoqKgwzMzNfMTExszIyMvQzMzP/MjIyvzExMR8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACcnJw0xMTGzMzMz/zMz
+        M/8zMzP/MzMz/zIyMvgvLy8wAAAAAAAAAAAAAAAAAAAAAAAAAAAzMzMFMjIyMzMzM2kxMTGFMzMzIwAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAjIyMo4zMzP/MzMz/zMzM/8zMzP/MzMzzQAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMTExcTIyMv0zMzP/MzMz/zMzM/8xMTFYAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxMTFnMjIy/TMz
+        M/8zMzP/MTExwgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAADIyMnkzMzP/MzMz/zIyMv0tLS0RAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjIyrDMzM/8zMzP/MzMzPAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAwMBUyMjLvMzMz/zAw
+        MEkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAMjIyiTMzM/8zMzM3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAADMzMzwzMzP6MzMzCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvLy8bMzMztAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDAwKjAw
+        MEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAC8vLyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA////AAAH//////AAAAB/////gB/4AB////4f///gB/////gAD/4D///8AAAAH8H//+AAAAAD
+        8P//gAAAAAD4//8AA//4AD7//gB////gH//+A/////wf//4D/////g///gD4AA//H///AAAAAf8f///A
+        QAAAf3/////AAAB//////+B8Af//////8P/j///////4AA/h/////8AAAPB/////AAAAOB////8AAAA8
+        D////wD/gP4H////h//7/wf////D////B////gAAB/+D///wAAAAf4P///AAAAA/g///4AAAAB+D///w
+        D/8fDgf///gD/YfwB////gB5w/gP//////HB////////4+H////////Dwf///////4fB////////B4H/
+        //////4Pgf///////A8B///////8HgP///////weA///////+B4H///////4Dgf///////gOB///////
+        +AYH///////8AgP///////wBAf///////gCA////////AAB///////+AID///////8AwD///////4BwH
+        ///////wD4P///////gH/////////gf/////////B/////////+D/////////8P/////////w///////
+        ///j/////////+P/////////5//////////n/////////+////8=
+</value>
+  </data>
 </root>
