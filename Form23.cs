@@ -24,6 +24,8 @@ namespace MultyMediaJAVA
         public Form23()
         {
             InitializeComponent();
+            textBox1.TextChanged += textBox1_TextChanged;  // Было textBoxInput_TextChanged
+            textBox1.KeyDown += textBox1_KeyDown;
             GenerateNewText();
         }
         private void GenerateNewText()
@@ -89,15 +91,23 @@ namespace MultyMediaJAVA
             string userText = textBox1.Text.Trim().ToUpper();
             TimeSpan elapsed = DateTime.Now - startTime;
 
-            // Проверка
             bool isCorrect = userText == currentText;
 
-            if (isCorrect)
+            if (isCorrect && elapsed.TotalSeconds > 0)  // ✅ Защита от деления на 0
             {
-                double wpm = currentText.Length / (elapsed.TotalSeconds / 60.0);
-                label2.Text = $"✓ ПРАВИЛЬНО! {wpm:F1} зн/мин ({elapsed.TotalSeconds:F1}с)";
+                // ✅ ТОЧНЫЙ подсчёт символов в минуту
+                int charCount = currentText.Length;  // Количество символов в тексте
+                double seconds = elapsed.TotalSeconds;
+                double wpm = (charCount / seconds) * 60;  // символов/мин
+
+                label2.Text = $"✓ ПРАВИЛЬНО! {wpm:F1} зн/мин ({seconds:F1}с)";
                 label2.ForeColor = Color.Green;
-                label2.Font = new Font(label2.Font, FontStyle.Bold);
+                label2.Font = new Font(label2.Font.FontFamily, 11, FontStyle.Bold);
+            }
+            else if (isCorrect)
+            {
+                label2.Text = "✓ ПРАВИЛЬНО! (слишком быстро)";
+                label2.ForeColor = Color.Green;
             }
             else
             {
@@ -105,7 +115,6 @@ namespace MultyMediaJAVA
                 label2.ForeColor = Color.Red;
             }
 
-            // Подсветка правильного текста
             pictureBox1.BackColor = isCorrect ? Color.LightGreen : Color.LightCoral;
         }
 
@@ -113,7 +122,7 @@ namespace MultyMediaJAVA
         {
             GenerateNewText();
         }
-        private void textBoxInput_TextChanged(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (!isTiming)
             {
@@ -131,9 +140,8 @@ namespace MultyMediaJAVA
                 label1.Text = $"Время: {elapsed.TotalSeconds:F1}с";
             }
         }
-        private void textBoxInput_KeyDown(object sender, KeyEventArgs e)
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            // Enter = Проверить
             if (e.KeyCode == Keys.Enter)
             {
                 button2_Click(null, null);
