@@ -103,9 +103,7 @@ namespace MultyMediaJAVA
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Form7 newForm = new Form7();
-            newForm.Show();
-            this.Hide();
+            Application.Exit(); // Закрывает все формы и завершает приложение
         }
     }
 }
