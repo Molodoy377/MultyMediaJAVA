@@ -49,7 +49,7 @@ namespace MultyMediaJAVA
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form1 newForm = new Form1();
+            Form13 newForm = new Form13();
             newForm.FormClosed += (s, args) => this.Show();
             newForm.Show();
             this.Hide();

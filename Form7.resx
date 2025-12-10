@@ -427,7 +427,7 @@ public void paint(Graphics g) {
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA1cAAAGnCAYAAABbz63AAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAyjlJREFUeF7s3QdUVEffBnAWxGjymZjyppleTG8ajSUWbDGWGE2isfdorLHG3nuL
+        wQAADsEBuJFr7QAAyjlJREFUeF7s3QdUVEffBnAWxGjymZjyppleTG8ajSUWbDGWGE2isfdorLHG3nuL
         vaLYG/aCBRFQUQQVRBFUulSlSRGQXZ/vzMBedi+IqNTl+Z2z533D3F12717ZeXZm/mMGIiIiIiIiempm
         6h8QERERERHR42O4IiIiIiIiygcMV0RERERERPmA4YqIiIiIiCgfMFwREZUi2oRgeJzch20b1mLdpl04
         5OgO/zit0THJ3i5wv60z+lnB0CHu2lEcdo9GYfw2IiKigsZwRURk8tIRfmYNhrWuijfLm0Nj+RI+a9gB
@@ -1296,7 +1296,7 @@ public void paint(Graphics g) {
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA6QAAAF3CAYAAACyioZ1AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAA/7JJREFUeF7snXdQFPf//90rIAiIKIqiWLBgLLHEGqMxxhJLFFsUC1FUVBQVRRML
+        wQAADsEBuJFr7QAA/7JJREFUeF7snXdQFPf//90rIAiIKIqiWLBgLLHEGqMxxhJLFFsUC1FUVBQVRRML
         FqzYe0EFNWLD7if6VWPBXkZNNFEn9p99QB2FAebu5vmbhdu73b29BnsI5PWYef3DLXvv232/X6/X812L
         gCAIgiAIgiAIgiA+A0XEfyAIgiAIgiAIgiCIvIAEKUEQBEEQBEEQBPFZIEFKEARBEARBEARBfBZsEqQH
         Dx5ElSpV0LdvXwwcOJCMjIyMjIyMZwEBAfj+++9N/k5GRkZGRvZft2+//RZff/21WGIasEmQrl+/HkWK
