@@ -89,9 +89,10 @@
             this.label2.Location = new System.Drawing.Point(98, 769);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(38, 16, 38, 16);
-            this.label2.Size = new System.Drawing.Size(1250, 83);
+            this.label2.Size = new System.Drawing.Size(1250, 230);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Результат:";
+            this.label2.Text = "Для переноса строки используйте ctrl+enter\r\nДля проверки результата нажмите enter" +
+    "\r\nРезультат:";
             // 
             // timer1
             // 

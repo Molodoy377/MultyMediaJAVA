@@ -142,11 +142,22 @@ namespace MultyMediaJAVA
         }
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
+            // Ctrl+Enter = Новая строка
+            // Enter = Проверка (только если нет Shift/Ctrl/Alt)
             if (e.KeyCode == Keys.Enter)
             {
-                button2_Click(null, null);
-                e.Handled = true;
-                e.SuppressKeyPress = true;
+                if (e.Control)  // Ctrl+Enter — новая строка
+                {
+                    // Ничего не делаем — TextBox сам добавит новую строку
+                    e.Handled = false;
+                    e.SuppressKeyPress = false;
+                }
+                else  // Просто Enter — проверка
+                {
+                    button2_Click(null, null);
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
+                }
             }
         }
 
