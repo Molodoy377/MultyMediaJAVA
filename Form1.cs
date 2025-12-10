@@ -89,7 +89,7 @@ namespace MultyMediaJAVA
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Form5 newForm = new Form5();
+            Form19 newForm = new Form19();
             newForm.Show();
             this.Hide();
         }
