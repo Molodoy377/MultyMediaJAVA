@@ -49,6 +49,7 @@
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -69,6 +70,7 @@
             this.textBox1.Location = new System.Drawing.Point(82, 65);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox1.Size = new System.Drawing.Size(620, 358);
             this.textBox1.TabIndex = 1;
             // 
@@ -78,6 +80,7 @@
             this.textBox2.Location = new System.Drawing.Point(712, 65);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
+            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox2.Size = new System.Drawing.Size(620, 358);
             this.textBox2.TabIndex = 2;
             // 
@@ -110,6 +113,7 @@
             this.textBox3.Location = new System.Drawing.Point(82, 534);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
+            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox3.Size = new System.Drawing.Size(620, 358);
             this.textBox3.TabIndex = 5;
             // 
@@ -119,6 +123,7 @@
             this.textBox4.Location = new System.Drawing.Point(712, 534);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
+            this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox4.Size = new System.Drawing.Size(620, 358);
             this.textBox4.TabIndex = 6;
             // 
@@ -151,6 +156,7 @@
             this.textBox5.Location = new System.Drawing.Point(82, 1003);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
+            this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox5.Size = new System.Drawing.Size(620, 358);
             this.textBox5.TabIndex = 9;
             // 
@@ -160,6 +166,7 @@
             this.textBox6.Location = new System.Drawing.Point(712, 1003);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
+            this.textBox6.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox6.Size = new System.Drawing.Size(620, 358);
             this.textBox6.TabIndex = 10;
             // 
@@ -192,8 +199,10 @@
             this.textBox7.Location = new System.Drawing.Point(82, 1472);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
+            this.textBox7.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox7.Size = new System.Drawing.Size(620, 358);
             this.textBox7.TabIndex = 13;
+            this.textBox7.TabStop = false;
             // 
             // textBox8
             // 
@@ -201,6 +210,7 @@
             this.textBox8.Location = new System.Drawing.Point(712, 1472);
             this.textBox8.Multiline = true;
             this.textBox8.Name = "textBox8";
+            this.textBox8.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox8.Size = new System.Drawing.Size(620, 358);
             this.textBox8.TabIndex = 14;
             // 
@@ -232,6 +242,7 @@
             this.textBox9.Location = new System.Drawing.Point(82, 1941);
             this.textBox9.Multiline = true;
             this.textBox9.Name = "textBox9";
+            this.textBox9.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox9.Size = new System.Drawing.Size(620, 358);
             this.textBox9.TabIndex = 17;
             // 
@@ -241,6 +252,7 @@
             this.textBox10.Location = new System.Drawing.Point(712, 1941);
             this.textBox10.Multiline = true;
             this.textBox10.Name = "textBox10";
+            this.textBox10.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox10.Size = new System.Drawing.Size(620, 358);
             this.textBox10.TabIndex = 18;
             // 
@@ -255,6 +267,20 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.button6.Font = new System.Drawing.Font("Stencil", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(438, 2353);
+            this.button6.Margin = new System.Windows.Forms.Padding(2);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(511, 65);
+            this.button6.TabIndex = 20;
+            this.button6.Text = "Вернуться на главную";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.MouseHover += new System.EventHandler(this.button6_MouseHover);
+            // 
             // Form14
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,6 +288,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1444, 861);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.textBox10);
             this.Controls.Add(this.textBox9);
@@ -312,5 +339,6 @@
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }

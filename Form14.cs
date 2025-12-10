@@ -60,5 +60,17 @@ namespace MultyMediaJAVA
         {
             textBox10.Text = CorrectAnswer5;
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Form1 newForm = new Form1();
+            newForm.FormClosed += (s, args) => this.Show();
+            newForm.Show();
+            this.Hide();
+        }
+            private void button6_MouseHover(object sender, EventArgs e)
+        {
+            button6.BackColor = Color.SkyBlue;
+        }
     }
 }
