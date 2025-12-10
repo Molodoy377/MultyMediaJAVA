@@ -75,7 +75,7 @@ namespace MultyMediaJAVA
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form3 newForm = new Form3();
+            Form14 newForm = new Form14();
             newForm.Show();
             this.Hide();
         }
