@@ -96,7 +96,6 @@ namespace MultyMediaJAVA
                 Size = new Size(380, 32),
                 Font = new Font("Segoe UI", 10F)
             };
-
             gb.Controls.AddRange(new Control[] { rbA, rbB, rbC, rbD });
             return gb;
         }
@@ -135,6 +134,34 @@ namespace MultyMediaJAVA
 
             MessageBox.Show($"Правильных ответов: {correctCount} из 15\nПроцент: {percentage:F1}%",
                            "Результат теста", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form19 newForm = new Form19();
+            newForm.FormClosed += (s, args) => this.Show();
+            newForm.Show();
+            this.Hide();
+        }
+        private void button2_MouseHover(object sender, EventArgs e)
+        {
+            button2.BackColor = Color.SkyBlue;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Form1 newForm = new Form1();
+            newForm.FormClosed += (s, args) => this.Show();
+            newForm.Show();
+            this.Hide();
+        }
+        private void button6_MouseHover(object sender, EventArgs e)
+        {
+            button6.BackColor = Color.SkyBlue;
+        }
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.SkyBlue;
         }
     }
 }
