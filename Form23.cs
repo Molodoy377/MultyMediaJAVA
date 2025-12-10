@@ -24,60 +24,88 @@ namespace MultyMediaJAVA
         public Form23()
         {
             InitializeComponent();
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             textBox1.TextChanged += textBox1_TextChanged;  // Было textBoxInput_TextChanged
             textBox1.KeyDown += textBox1_KeyDown;
             GenerateNewText();
         }
         private void GenerateNewText()
         {
-            // Генерируем случайный текст
-            currentText = testTexts[rand.Next(testTexts.Length)];
+            // ✅ Полная очистка старого изображения
+            if (pictureBox1.Image != null)
+            {
+                pictureBox1.Image.Dispose();
+                pictureBox1.Image = null;
+            }
 
-            // Создаем изображение с текстом
+            pictureBox1.BackColor = Color.Transparent;
+
+            currentText = testTexts[rand.Next(testTexts.Length)];
             pictureBox1.Image = CreateTextImage(currentText);
 
-            // Очищаем поле ввода
             textBox1.Text = "";
             textBox1.Focus();
-
-            // Сбрасываем время
             label1.Text = "Время: 0с";
             isTiming = false;
             timer1.Stop();
-
             label2.Text = "Результат: --";
+            label2.ForeColor = Color.Black;
+            label2.Font = new Font(label2.Font.FontFamily, label2.Font.Size, FontStyle.Regular);
         }
+
 
         private Bitmap CreateTextImage(string text)
         {
-            // Размеры изображения
             int width = 700;
             int height = 180;
             Bitmap bmp = new Bitmap(width, height);
             Graphics g = Graphics.FromImage(bmp);
 
+            // ✅ ВАЖНО: ВКЛЮЧАЕМ СГЛАЖИВАНИЕ для красивого текста
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+
             // Фон
-            g.Clear(Color.LightGray);
-            g.FillRectangle(new SolidBrush(Color.FromArgb(240, 240, 240)), 0, 0, width, height);
+            g.Clear(Color.White);
 
             // Градиентный фон
             using (LinearGradientBrush brush = new LinearGradientBrush(
                 new Point(0, 0), new Point(width, height),
-                Color.WhiteSmoke, Color.LightBlue))
+                Color.FromArgb(255, 248, 250), Color.FromArgb(230, 240, 255)))
             {
-                g.FillRectangle(brush, 50, 30, width - 100, height - 60);
+                g.FillRectangle(brush, 30, 20, width - 60, height - 40);
+            }
+
+            // Рамка
+            using (Pen borderPen = new Pen(Color.FromArgb(100, 150, 200), 3))
+            {
+                g.DrawRectangle(borderPen, 28, 18, width - 56, height - 36);
             }
 
             // Текст с эффектами
             string displayText = text.ToUpper();
-            Font font = new Font("Arial Black", 28, FontStyle.Bold);
-            StringFormat sf = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+            Font font = new Font("Segoe UI Black", 26, FontStyle.Bold);
+            StringFormat sf = new StringFormat
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center,
+                Trimming = StringTrimming.None
+            };
 
-            // Тень текста
-            g.DrawString(displayText, font, Brushes.DarkGray, new PointF(52, 32), sf);
-            // Основной текст
-            g.DrawString(displayText, font, Brushes.DarkBlue, new PointF(50, 30), sf);
+            // Тень текста (мягче)
+            using (Brush shadowBrush = new SolidBrush(Color.FromArgb(80, 80, 80)))
+            {
+                g.DrawString(displayText, font, shadowBrush, new PointF(35, 25), sf);
+            }
 
+            // Основной текст (ярче)
+            using (Brush textBrush = new SolidBrush(Color.FromArgb(30, 60, 120)))
+            {
+                g.DrawString(displayText, font, textBrush, new PointF(32, 22), sf);
+            }
+
+            // ✅ Освобождаем Graphics
             g.Dispose();
             return bmp;
         }
@@ -163,8 +191,19 @@ namespace MultyMediaJAVA
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            pictureBox1?.Dispose();
+            try
+            {
+                // Безопасное освобождение изображения
+                if (pictureBox1?.Image != null)
+                {
+                    pictureBox1.Image.Dispose();
+                    pictureBox1.Image = null;
+                }
+            }
+            catch { /* Игнорируем ошибки освобождения */ }
+
             base.OnFormClosing(e);
         }
+
     }
 }
