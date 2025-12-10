@@ -24,9 +24,15 @@ namespace MultyMediaJAVA
         public Form23()
         {
             InitializeComponent();
+
+            // Устанавливаем размер PictureBox
+            pictureBox1.Size = new Size(700, 180);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            textBox1.TextChanged += textBox1_TextChanged;  // Было textBoxInput_TextChanged
+            pictureBox1.BackColor = Color.White;
+
+            textBox1.TextChanged += textBox1_TextChanged;
             textBox1.KeyDown += textBox1_KeyDown;
+
             GenerateNewText();
         }
         private void GenerateNewText()
@@ -34,13 +40,14 @@ namespace MultyMediaJAVA
             // ✅ Полная очистка старого изображения
             if (pictureBox1.Image != null)
             {
-                pictureBox1.Image.Dispose();
+                var oldImage = pictureBox1.Image;
                 pictureBox1.Image = null;
+                oldImage.Dispose();
             }
 
-            pictureBox1.BackColor = Color.Transparent;
-
             currentText = testTexts[rand.Next(testTexts.Length)];
+
+            // Создаем изображение с текущим размером PictureBox
             pictureBox1.Image = CreateTextImage(currentText);
 
             textBox1.Text = "";
@@ -56,57 +63,74 @@ namespace MultyMediaJAVA
 
         private Bitmap CreateTextImage(string text)
         {
-            int width = 700;
-            int height = 180;
+            int width = pictureBox1.Width > 0 ? pictureBox1.Width : 700;
+            int height = pictureBox1.Height > 0 ? pictureBox1.Height : 180;
+
             Bitmap bmp = new Bitmap(width, height);
             Graphics g = Graphics.FromImage(bmp);
 
-            // ✅ ВАЖНО: ВКЛЮЧАЕМ СГЛАЖИВАНИЕ для красивого текста
-            g.SmoothingMode = SmoothingMode.AntiAlias;
-            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
-            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-
-            // Фон
-            g.Clear(Color.White);
-
-            // Градиентный фон
-            using (LinearGradientBrush brush = new LinearGradientBrush(
-                new Point(0, 0), new Point(width, height),
-                Color.FromArgb(255, 248, 250), Color.FromArgb(230, 240, 255)))
+            try
             {
-                g.FillRectangle(brush, 30, 20, width - 60, height - 40);
+                // ✅ ВАЖНО: ВКЛЮЧАЕМ СГЛАЖИВАНИЕ для красивого текста
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+
+                // Фон
+                g.Clear(Color.White);
+
+                // Градиентный фон
+                using (LinearGradientBrush brush = new LinearGradientBrush(
+                    new Point(0, 0), new Point(width, height),
+                    Color.FromArgb(255, 248, 250), Color.FromArgb(230, 240, 255)))
+                {
+                    g.FillRectangle(brush, 30, 20, width - 60, height - 40);
+                }
+
+                // Рамка
+                using (Pen borderPen = new Pen(Color.FromArgb(100, 150, 200), 3))
+                {
+                    g.DrawRectangle(borderPen, 28, 18, width - 56, height - 36);
+                }
+
+                // Текст
+                string displayText = text.ToUpper();
+                using (Font font = new Font("Segoe UI", 26, FontStyle.Bold))
+                using (StringFormat sf = new StringFormat
+                {
+                    Alignment = StringAlignment.Center,
+                    LineAlignment = StringAlignment.Center,
+                    Trimming = StringTrimming.None,
+                    FormatFlags = StringFormatFlags.NoWrap
+                })
+                {
+                    // Вычисляем центр области
+                    RectangleF textRect = new RectangleF(30, 20, width - 60, height - 40);
+
+                    // Тень текста
+                    using (Brush shadowBrush = new SolidBrush(Color.FromArgb(80, 80, 80)))
+                    {
+                        RectangleF shadowRect = new RectangleF(
+                            textRect.X + 2,
+                            textRect.Y + 2,
+                            textRect.Width,
+                            textRect.Height
+                        );
+                        g.DrawString(displayText, font, shadowBrush, shadowRect, sf);
+                    }
+
+                    // Основной текст
+                    using (Brush textBrush = new SolidBrush(Color.FromArgb(30, 60, 120)))
+                    {
+                        g.DrawString(displayText, font, textBrush, textRect, sf);
+                    }
+                }
+            }
+            finally
+            {
+                g.Dispose();
             }
 
-            // Рамка
-            using (Pen borderPen = new Pen(Color.FromArgb(100, 150, 200), 3))
-            {
-                g.DrawRectangle(borderPen, 28, 18, width - 56, height - 36);
-            }
-
-            // Текст с эффектами
-            string displayText = text.ToUpper();
-            Font font = new Font("Segoe UI Black", 26, FontStyle.Bold);
-            StringFormat sf = new StringFormat
-            {
-                Alignment = StringAlignment.Center,
-                LineAlignment = StringAlignment.Center,
-                Trimming = StringTrimming.None
-            };
-
-            // Тень текста (мягче)
-            using (Brush shadowBrush = new SolidBrush(Color.FromArgb(80, 80, 80)))
-            {
-                g.DrawString(displayText, font, shadowBrush, new PointF(35, 25), sf);
-            }
-
-            // Основной текст (ярче)
-            using (Brush textBrush = new SolidBrush(Color.FromArgb(30, 60, 120)))
-            {
-                g.DrawString(displayText, font, textBrush, new PointF(32, 22), sf);
-            }
-
-            // ✅ Освобождаем Graphics
-            g.Dispose();
             return bmp;
         }
 
