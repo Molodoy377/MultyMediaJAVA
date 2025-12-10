@@ -56,40 +56,53 @@ namespace MultyMediaJAVA
 
         private GroupBox CreateQuestionGroupBox(int index, string questionText)
         {
-            GroupBox gb = new GroupBox
+            var gb = new GroupBox
             {
-                Text = $"Вопрос {index + 1}",
-                Size = new Size(760, 100),
-                Location = new Point(0, 0)  // FlowLayoutPanel сам расставит
+                Text = $"Вопрос {index + 1}" + questionText,
+                Size = new Size(820, 200),   // ✅ МАКСИМАЛЬНО УВЕЛИЧИЛИ: 820x200
+                Margin = new Padding(8)
             };
 
-            // Текст вопроса
-            Label lblQuestion = new Label
+            // ✅ Радиокнопки ЕЩЁ БОЛЬШЕ и с БОЛЬШИМ отступом
+            var rbA = new RadioButton
             {
-                Text = questionText,
-                Size = new Size(740, 45),
-                Location = new Point(10, 20),
-                Font = new Font("Segoe UI", 9F)
+                Text = "A",
+                Tag = "A",
+                Location = new Point(25, 110),     // ✅ Больше отступ сверху
+                Size = new Size(380, 32),          // ✅ Шире и выше
+                Font = new Font("Segoe UI", 10F)   // ✅ КРУПНЕЕ шрифт
             };
-            gb.Controls.Add(lblQuestion);
-
-            // 4 радиокнопки (автоматически группируются внутри GroupBox)
-            string[] options = { "A", "B", "C", "D" };
-            for (int i = 0; i < 4; i++)
+            var rbB = new RadioButton
             {
-                RadioButton rb = new RadioButton
-                {
-                    Text = options[i],
-                    Tag = options[i],  // Сохраняем букву ответа
-                    Location = new Point(20 + i * 180, 65),
-                    Size = new Size(160, 25),
-                    Font = new Font("Segoe UI", 9F)
-                };
-                gb.Controls.Add(rb);
-            }
+                Text = "B",
+                Tag = "B",
+                Location = new Point(420, 110),    // ✅ Больше отступ слева
+                Size = new Size(380, 32),
+                Font = new Font("Segoe UI", 10F)
+            };
+            var rbC = new RadioButton
+            {
+                Text = "C",
+                Tag = "C",
+                Location = new Point(25, 150),     // ✅ Вторая строка ниже
+                Size = new Size(380, 32),
+                Font = new Font("Segoe UI", 10F)
+            };
+            var rbD = new RadioButton
+            {
+                Text = "D",
+                Tag = "D",
+                Location = new Point(420, 150),
+                Size = new Size(380, 32),
+                Font = new Font("Segoe UI", 10F)
+            };
 
+            gb.Controls.AddRange(new Control[] { rbA, rbB, rbC, rbD });
             return gb;
         }
+
+
+
 
         private void ButtonCheck_Click(object sender, EventArgs e)
         {

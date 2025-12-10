@@ -44,12 +44,12 @@
             this.flowLayoutPanel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1444, 580);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1427, 881);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(492, 586);
+            this.button1.Location = new System.Drawing.Point(463, 887);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(344, 46);
             this.button1.TabIndex = 1;
@@ -60,10 +60,10 @@
             // 
             this.label1.BackColor = System.Drawing.Color.MintCream;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(68, 635);
+            this.label1.Location = new System.Drawing.Point(56, 936);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(38, 16, 38, 16);
-            this.label1.Size = new System.Drawing.Size(1250, 200);
+            this.label1.Size = new System.Drawing.Size(1250, 122);
             this.label1.TabIndex = 2;
             this.label1.Text = "label1";
             // 
