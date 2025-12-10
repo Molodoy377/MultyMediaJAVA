@@ -16,5 +16,20 @@ namespace MultyMediaJAVA
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 newForm = new Form2();
+            newForm.Show();
+            this.Hide();
+        }
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.SkyBlue;
+        }
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.White;
+        }
     }
 }
