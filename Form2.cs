@@ -32,10 +32,6 @@ namespace MultyMediaJAVA
             button1.BackColor = Color.SkyBlue;
         }
 
-        private void button1_MouseLeave(object sender, EventArgs e)
-        {
-            button1.BackColor = SystemColors.Control;
-        }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
@@ -66,6 +62,19 @@ namespace MultyMediaJAVA
                     // НЕТ play() - пользователь сам нажимает Play в плеере
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Только переход - плеер продолжает работать сам
+            Form13 newForm = new Form13();
+            newForm.FormClosed += (s, args) => this.Show();
+            newForm.Show();
+            this.Hide();
+        }
+        private void button2_MouseHover(object sender, EventArgs e)
+        {
+            button2.BackColor = Color.SkyBlue;
         }
     }
 }
