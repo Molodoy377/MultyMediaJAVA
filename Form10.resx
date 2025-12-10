@@ -342,7 +342,7 @@ MyException
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA7MAAAGMCAYAAAAIrfU+AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAqeZJREFUeF7s3Qd4U1UfBnDSNuzlREVx4/wcoCwVQRRUHKA4GCoCIoiLLRTK3nvv
+        wQAADsEBuJFr7QAAqeZJREFUeF7s3Qd4U1UfBnDSNuzlREVx4/wcoCwVQRRUHKA4GCoCIoiLLRTK3nvv
         DWXLKnuWvfeUUVYplLZAW2hDEt7vuWnSnDvSJk2apsn7e57/ozT33px7M9+cc8/NAyIiIiIiIqJcJo/y
         D0RERERERES+jmGWiIiIiIiIch2GWSIiIiIiIsp1GGaJiIiIiIgo12GYJSIiIiIiolyHYZaIyElHjx7F
         jBkzWCyWF2rPnj3KlyAREZEMwywRkRMSEhIQHByMPHnysFgsL1ShQoVw69Yt5UuRiIgoHcMsEZETzp8/
